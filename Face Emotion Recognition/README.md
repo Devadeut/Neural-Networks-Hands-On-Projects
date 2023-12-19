@@ -65,12 +65,14 @@ python main.py [-t] [--data [data_path]] [--hparams [hyperparams]]
 python visualize.py [-t] [-c] [--data [data_path]] [--model [model_path]]
 
 --data                  Data folder that contains test images and test CSV file
---model                 Path to pretrained model
+--model                 Path to pre-trained model
 --test_cc               Calculate the test accuracy
 --cam                   Test the model in real-time with webcam connected via USB
 ```
 ## Prediction Samples
+After prediction results are demonstrated here:
+
+example prediction from paper:
 <p align="center">
   <img src="imgs/samples.png" width="720" title="Deep-Emotion Architecture">
 </p>
-```
