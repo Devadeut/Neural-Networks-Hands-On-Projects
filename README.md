@@ -5,8 +5,8 @@ This repository serves as a comprehensive collection of hands-on projects design
 
 ## Projects Included:
 
-### 1. Implementing Neural Networks from Scratch
-Deepen your understanding by building basic neural network architectures (feedforward, CNN, RNN) from scratch using Python and NumPy, without relying on deep learning libraries.
+### 1. Face Emotion Recognition 
+PyTorch implementation of 'Deep-Emotion,' a facial expression recognition using attentional convolutional network. This repository provides an end-to-end deep learning solution for facial expression analysis.
 
 Each project includes detailed documentation, code samples, and explanations to help you grasp concepts effectively. Feel free to explore, experiment, and expand upon these projects as you dive deeper into the world of neural networks!
 
