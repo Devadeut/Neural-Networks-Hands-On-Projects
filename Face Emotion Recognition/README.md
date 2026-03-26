@@ -16,7 +16,6 @@ This repository provides a PyTorch implementation of the research paper, [Deep-E
 This implementation uses the following datasets:
 - [FER2013](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data)
 
-
 ## Prerequisites
 Make sure you have the following libraries installed:
 - PyTorch >= 1.1.0
@@ -26,51 +25,33 @@ Make sure you have the following libraries installed:
 - Pillow (PIL)
 
 ## Repository Structure
-This repository is organized as follows:
-- [`main`](/main.py): Contains setup for the dataset and training loop.
-- [`visualize`](/visualize.py): Includes source code for evaluating the model on test data and real-time testing using a webcam.
-- [`model`](/model.py): Defines the model class.
-- [`data_loaders`](/data_loaders.py): Contains the dataset class.
-- [`generate_data`](/generate_data.py): Sets up the [dataset](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data).
-
+This project is organized as follows:
+- [`emotion_detector.py`](./emotion_detector.py): CLI runner for model loading, evaluation, and webcam inference.
+- [`deep_emotion_model.py`](./deep_emotion_model.py): Defines the `DeepEmotionModel` class.
+- [`imgs/`](./imgs): Architecture and prediction sample images.
 
 ### Data Preparation
 1. Download the dataset from [Kaggle](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data).
-2. Decompress `train.csv` and `test.csv` into the `./data` folder.
+2. Arrange the test dataset in ImageFolder format (one folder per class label).
 
 ### How to Run
-**Setup the Dataset**
+**Evaluate test accuracy**
 ```bash
-python main.py [-s [True]] [-d [data_path]]
-
---setup                 Setup the dataset for the first time
---data                  Data folder that contains data files
+python emotion_detector.py --model <model_path> --data <test_data_dir> --test_acc
 ```
 
-**To train the model**
-```
-python main.py [-t] [--data [data_path]] [--hparams [hyperparams]]
-              [--epochs] [--learning_rate] [--batch_size]
+- `--model`: Path to pretrained model checkpoint (`.pth`).
+- `--data`: Root test data directory in ImageFolder structure.
+- `--test_acc`: Calculate test accuracy.
 
---data                  Data folder that contains training and validation files
---train                 True when training
---hparams               True when changing the hyperparameters
---epochs                Number of epochs
---learning_rate         Learning rate value
---batch_size            Training/validation batch size
+**Run webcam inference**
+```bash
+python emotion_detector.py --model <model_path> --data <test_data_dir> --webcam
 ```
 
-**To validate the model**
-```
-python visualize.py [-t] [-c] [--data [data_path]] [--model [model_path]]
+- `--webcam`: Run real-time prediction with a connected webcam.
 
---data                  Data folder that contains test images and test CSV file
---model                 Path to pretrained model
---test_cc               Calculate the test accuracy
---cam                   Test the model in real-time with webcam connected via USB
-```
 ## Prediction Samples
 <p align="center">
   <img src="imgs/samples.png" width="720" title="Deep-Emotion Architecture">
 </p>
-```
