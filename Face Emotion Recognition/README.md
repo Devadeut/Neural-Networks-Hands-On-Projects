@@ -1,3 +1,4 @@
+## Work In Progress
 # Deep-Emotion: Facial Expression Recognition Using Attentional Convolutional Network
 
 This repository provides a PyTorch implementation of the research paper, [Deep-Emotion](https://arxiv.org/abs/1902.01019).
@@ -51,7 +52,15 @@ python emotion_detector.py --model <model_path> --data <test_data_dir> --webcam
 
 - `--webcam`: Run real-time prediction with a connected webcam.
 
+--data                  Data folder that contains test images and test CSV file
+--model                 Path to pre-trained model
+--test_cc               Calculate the test accuracy
+--cam                   Test the model in real-time with webcam connected via USB
+```
 ## Prediction Samples
+After prediction results are demonstrated here:
+
+example prediction from paper:
 <p align="center">
   <img src="imgs/samples.png" width="720" title="Deep-Emotion Architecture">
 </p>
